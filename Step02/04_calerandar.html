@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>달력</title>
+  <script>
+    //현재 날짜 하나 생성
+    let today = new Date();
+    //현재 월의 첫번째 날짜
+    let startDate = new Date(today.getFullYear(),today.getMonth(),1);
+    //현재 월의 마지막 날짜
+    let endDate = new Date(today.getFullYear(),today.getMonth()+1,0);
+    //달력상으로 첫번째 칸 날짜
+    startDate.setDate(startDate.getDate() - startDate.getDay());
+    //달력상으로 마지막 칸 날짜
+    endDate.setDate(endDate.getDate() + 6 - endDate.getDay());
+
+    //달력이 몇 줄 짜리인지 구함
+    
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
