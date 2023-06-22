@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while</title>
+    <style>
+        p{
+            text-align: center;
+        }
+        .red{
+            color: red;
+        }
+        .blue{
+            color: blue;
+        }
+    </style>
+    <script>
+        //숫자 1~10까지 출력하는 반복문
+        //숫자가 짝수면 글자색을 파랑색, 홀수면 글자색을 빨간색으로 숫자 출력
+        let n = 1;
+        while(n < 11){
+            if(n % 2 == 1)
+                document.write('<p class="red">'+n+'</p>');
+            else
+                document.write('<p class="blue">'+n+'</p>');
+            n++;
+        }
+        //백틱을 이용한 태그 조립
+        n = 1;
+        let tag = '';
+        while(n < 11){
+            if(n % 2 == 1)
+                tag += `<p class="red">${n}</p>`;
+            else
+                tag += `<p class="blue">${n}</p>`;
+            n++;
+        }
+        document.write(tag);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
