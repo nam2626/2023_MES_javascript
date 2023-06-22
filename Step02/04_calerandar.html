@@ -24,7 +24,14 @@
     let tag = `<h2>${today.getMonth()+1}월</h2>`;
     tag += '<table><tr><th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th></tr>';
     //달력을 조립하는 반복문 
-    
+    for(i=0;i<line;i++){
+      tag += '<tr>';
+      for(j=0;j<7;j++){
+        tag += `<td>${startDate.getDate()}</td>`;
+        startDate.setDate(startDate.getDate()+1);//날짜 증가
+      }
+      tag += '</tr>';
+    }
     tag += "</table>";
     document.write(tag);
   </script>
@@ -39,7 +46,12 @@
       width: 150px;
       border: 1px solid black;
       text-align: center;
-      padding: 5px 0px;
+      padding: 5px;
+    }
+    td{
+      height: 150px;
+      vertical-align: top;
+      text-align: right;
     }
   </style>
 </head>
