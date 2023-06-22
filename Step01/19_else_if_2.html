@@ -18,6 +18,16 @@
         let mise = Number(prompt('미세먼지 수치를 입력하세요','0'))
         console.log(mise)
 
+        if(mise < 31){
+            document.write(`<p style="color:skyblue">미세먼지 수치 좋음</p>`);
+        }else if(mise < 81){
+            document.write(`<p style="color:yellowgreen">미세먼지 수치 보통</p>`);
+        }else if(mise < 151){
+            document.write(`<p style="color:orange">미세먼지 수치 나쁨</p>`);
+        }else{
+            document.write(`<p style="color:red">미세먼지 수치 매우 나쁨</p>`);
+        }
+
       
 
     </script>
