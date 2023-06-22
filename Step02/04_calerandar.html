@@ -22,7 +22,7 @@
 
     //테이블 요일까지 태그 생성
     let tag = `<h2>${today.getMonth()+1}월</h2>`;
-    tag += '<table><tr><th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th></tr>';
+    tag += '<table><tr><th class="sun">일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th class=\'sat\'>토</th></tr>';
     //달력을 조립하는 반복문 
     for(i=0;i<line;i++){
       tag += '<tr>';
