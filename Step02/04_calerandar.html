@@ -18,7 +18,10 @@
     endDate.setDate(endDate.getDate() + 6 - endDate.getDay());
 
     //달력이 몇 줄 짜리인지 구함
-    
+    let line = (endDate.getTime() - startDate.getTime()) / (7 * 24 * 60 * 60 * 1000);
+
+    //테이블 요일까지 태그 생성
+    let tag = '';
   </script>
 </head>
 <body>
