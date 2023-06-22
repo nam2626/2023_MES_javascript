@@ -14,6 +14,22 @@
     document.write("월 : ", today.getMonth(), "<br>");
     document.write("일 : ", today.getDate(), "<br>");
     document.write("요일 : ", today.getDay(), "<br>");
+    //날짜 정보 지정
+    let sunday = new Date(2023, 5, 25, 14, 45, 33);
+    // let sunday = new Date("2023-06-25 13:45:33");
+    document.write(sunday.toLocaleString(), "<br>");
+    //날짜 정보의 밀리초값 획득
+    document.write(sunday.getTime(), "<br>");
+
+    //현재 날짜의 월 초 날짜를 구하는 방법
+    let firstDay = new Date(today.getFullYear(), today.getMonth(), 1);
+    document.write(firstDay.toLocaleString(), "<br>");
+    //현재 날짜의 월 말일을 구하는 방법
+    let lastDay = new Date(today.getFullYear(), today.getMonth()+1, 0);
+    document.write(lastDay.toLocaleString(), "<br>");
+    //날짜 계산
+    document.write(lastDay.getTime() - firstDay.getTime());
+
   </script>
 </head>
 
