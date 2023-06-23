@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>function</title>
+    <style>
+        table{
+            border-collapse: collapse;
+        }
+        td{
+            padding:30px;
+            border:1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id="txt">
+    <button id="btn">로또번호 생성</button>
+    <hr>
+    <div id="area"></div>
+    <script>
+        let btn = document.getElementById('btn');
+        let txt = document.getElementById('txt');
+        let area = document.getElementById('area');
+
+        btn.onclick = () => {
+            let row = Number(txt.value);
+            let tag = '<table>';
+            //row 갯수만큼 로또번호 셋트를 표로 만들어서 tag 변수에 추가
+            //숫자는 랜덤으로 처리
+            //----------------------
+            for(i=0;i<row;i++){
+                let arr = new Array();
+                while(arr.length < 6){
+                    let n = Math.floor(Math.random()*45)+1;
+                    if(arr.indexOf(n) == -1){
+                        arr.push(n);
+                    }
+                }
+                console.log(`<tr><td>${arr.join('</td><td>')}</td></tr>`);
+                tag += `<tr><td>${arr.join('</td><td>')}</td></tr>`;
+            }
+            tag += '</table>';
+            //----------------------
+            area.innerHTML = tag;
+        }
+
+    </script>
+</body>
+</html>
