@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가변길이 매개변수</title>
+  <script>
+    function sum(...arr){
+      let result = 0;
+      for(i in arr){
+        result += arr[i];
+      }
+      return result;
+    }
+    
+    document.write(`<p>${sum(10,20,30,40)}</p>`);
+    document.write(`<p>${sum(10,20,30,40,50,60,70)}</p>`);
+    //document.write(`<p>${sum([10,20,30,40,50,60,70])}</p>`);
+    
+    //가변길이 매개변수 무조건 맨 마지막에 넣어야됨
+    // function sum2(...arr,a,b){
+    function sum2(a,b,...arr){
+      let result = 0;
+      for(i in arr){
+        result += arr[i];
+      }
+      return result;
+    }
+  </script>
+</head>
+<body>
+  
+</body>
+</html>

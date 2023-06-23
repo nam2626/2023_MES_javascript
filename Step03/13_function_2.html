@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function sum(a,b){
+      a = a == undefined ? 0 : a;
+      b = b == undefined ? 0 : b;
+      return a+b;
+    }
+    document.write(`<p>${sum()}</p>`);
+    document.write(`<p>${sum(10)}</p>`);
+    document.write(`<p>${sum(10,20)}</p>`);
+    //default parameter
+    function minus(a=0,b=0){
+      return a-b;
+    }
+    document.write(`<p>${minus()}</p>`);
+    document.write(`<p>${minus(10)}</p>`);
+    document.write(`<p>${minus(10,20)}</p>`);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
