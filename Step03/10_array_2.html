@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    //배열 생성
+    let arr = new Array();
+    //배열에 데이터 추가
+    arr.push(10);
+    arr.push(20);
+    arr.push(true);
+    arr.push(3.1415);
+    arr.push('test');
+    arr.push(1);
+
+    document.write(`<p>${arr}</p>`);
+    //배열 내용 검색
+    document.write(`<p>값이 3.1415인 인덱스 번호 : ${arr.indexOf(3.1415)}</p>`);
+    document.write(`<p>값이 324인 인덱스 번호 : ${arr.indexOf(324)}</p>`);
+
+    //find
+    let result = arr.find(e => e < 20);
+    document.write(`<p>20보다 작은 값 : ${result}</p>`);
+
+    result = arr.find(function(e,i,arr) {
+      if(e < 20){
+        document.write(`<p>20의 인덱스 번호 : ${i}</p>`);
+        return true;
+      }
+      return false;
+    });
+    document.write(`<p>20보다 작은 값 : ${result}</p>`);
+
+    //배열 요소 삭제
+    arr.pop();//마지막에 저장된 값을 삭제
+    document.write(`<p>${arr}</p>`);
+
+    document.write(arr,'<br>');
+    document.write(arr.splice(3,2),'<br>');
+    document.write(arr,'<br>');
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
