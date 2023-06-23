@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>함수</title>
+  <script>
+    function sum(a,b){
+      console.log(a,b);
+      return a+b;
+    }
+
+    let result = sum(10,20);
+    document.write(`<p>10+20=${result}</p>`);
+    document.write(`<p>${sum()}</p>`);
+
+    //null : 내용이 비었다. <-- null도 값이다.
+    //undefined : 값이 없다.
+    function minus(a,b){
+      document.write(`<p>${a-b}</p>`);
+    }
+    document.write(`<p>${minus(10,20)}</p>`);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
