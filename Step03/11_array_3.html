@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>배열</title>
+  <script>
+    let arr1 = [1,2,35,34,3,45];
+    let arr2 = [34,244,5235,111];
+    let arr3 = arr1.concat(arr2); //arr1과 arr2를 합친다.
+    // let arr3 = [...arr1,...arr2];
+    document.write(arr3,'<br>');
+    document.write(arr1,'<br>');
+    document.write(arr2,'<br>');
+
+    //배열에 내용을 하나의 문자열로 합치기, 특정 문자로 구분
+    let str = arr3.join('&');
+    document.write(str,'<br>');
+    //split 함수로 특정 문자열로 쪼개기 후에 배열로 관리
+    let arr4 = str.split('&');
+    document.write(arr4);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
