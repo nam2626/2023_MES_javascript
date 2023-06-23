@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>function</title>
+  <script>
+    //익명함수 : 이름이 없는 함수, 변수에 담아서 사용 --> 이벤트 처리, 배열의 각 요소를 함수로 처리할 때 사용
+    let func = function(){
+      document.write('익명함수<br>');
+    }
+    func();//변수명()로 실행
+
+    //화살표 함수 : ES6에서 추가된 함수, 함수를 간략하게 표현할 때 사용
+    let func2 = () => {
+      document.write('화살표 함수<br>');
+    }
+    func2();
+
+    let func3 = (a,b) => a + b;
+    document.write(`<p>${func3(10,20)}</p>`);
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
