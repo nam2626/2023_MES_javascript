@@ -46,6 +46,25 @@
         //태그명으로 선택
         var p = document.getElementsByTagName('p');
         console.log(p);
+        for(tag of p){
+            console.log(tag.innerHTML);    
+        }
+        //선택된 p 태그의 순서대로 내용을 A, B, C, D, E로 변경
+        for(i=0;i<p.length;i++){
+            //해당 태그가 출력하는 내용을 변경(태그도 포함해서 적용)
+            p[i].innerHTML ="<b>" + String.fromCharCode(65+i) +"</b>";
+            //배경색을 녹색으로 변경
+            p[i].style.backgroundColor = "green";
+            //글자색 흰색으로 변경
+            p[i].style.color = "#FFFFFF";
+        }
+
+        //querySelectorAll('선택자') : 배열 형태로 반환
+        var input = document.querySelectorAll('input');
+        //선택된 input 태그들의 value 값을 출력
+        for(i=0;i<input.length;i++){
+            console.log(input[i].value);
+        }
     </script>
 </body>
 </html>
