@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <style>
+        div{
+            padding:30px;
+            border:5px solid black;
+        }
+        p{
+            background-color: aquamarine;
+        }
+    </style>
+    <script>
+        window.onload = () => {
+            //div 선택
+            let div = document.querySelector('div');
+            //div 테두리 빨강
+            div.onmouseenter = () => {
+                console.log('enter');    
+                div.style.borderColor = 'red';
+            }
+            
+            //div 테두리 검은색
+            div.onmouseleave = () => {
+                console.log('leave');    
+                div.style.borderColor = 'black';
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    <div id="div">
+        <p id="p">내용</p>
+    </div>
+</body>
+</html>
