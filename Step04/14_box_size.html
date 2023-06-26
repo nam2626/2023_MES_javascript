@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>길이 측정</title>
+    <style>
+        *{
+            margin: 0;
+            padding:0;
+        }
+        .outter{
+            width: 300px;
+            height: 300px;
+            border:1px solid black;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .inner{
+            width: 200px;
+            height: 600px;
+            border:1px solid red;
+            margin: 0 auto;
+            padding:20px;
+            background-color: blueviolet;
+        }
+    </style>
+</head>
+<body>
+    <div class="outter">
+        <div class="inner"></div>
+    </div>
+    <script>
+        console.log(document.querySelector('.inner').clientHeight);
+        console.log(document.querySelector('.inner').offsetHeight);
+        console.log(document.querySelector('.inner').scrollHeight);
+        //clientHeight, clientWidth - 화면에 보이는 길이 + padding
+        console.log(document.querySelector('.outter').clientHeight);
+        //offsetHeight, offsetWidth - 화면에 보이는 길이 + padding + border + scrollbar
+        console.log(document.querySelector('.outter').offsetHeight);
+        //scrollHeight, scrollWidth - 화면에 보이지 않는 것까지 포함한 길이 + padding
+        console.log(document.querySelector('.outter').scrollHeight);
+
+        //-----------------------------------------------------------
+        console.log(document.querySelector('.inner').style.height);
+        console.log(document.defaultView.getComputedStyle(
+            document.querySelector('.inner')).height);
+    </script>
+</body>
+</html>
