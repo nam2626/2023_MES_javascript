@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <style>
+       #box{
+        width: 200px;
+        height: 200px;
+        background-image: url('img/non_check.png');
+        background-size: 100%;
+       }
+    </style>
+    <script>
+       window.onload = () => {
+        let flag = false;
+        document.querySelector("#box").onclick = function() {
+            flag = !flag;
+            if(flag)
+                this.style.backgroundImage = 'url(img/check.png)';
+            else
+                this.style.backgroundImage = 'url(img/non_check.png)';
+        }
+       }
+    </script>
+</head>
+<body>
+    <div id="box"></div>
+</body>
+</html>
