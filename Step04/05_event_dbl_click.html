@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <script>
+        window.onload = () => {
+            //h1을 더블클릭하면 h1 태그 내부에 있는 내용을 경고창으로 출력
+            let h1 = document.querySelector("h1");
+
+            h1.ondblclick = () => {
+                alert(h1.innerHTML);
+            }
+        }
+        
+    </script>
+</head>
+<body>
+    <h1 id="h1">제목 태그</h1>
+</body>
+</html>

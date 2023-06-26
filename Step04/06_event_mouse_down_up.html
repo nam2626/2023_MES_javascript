@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <script>
+        window.onload = function () {
+            // content, btn 선택
+            let content = document.querySelector("#content");
+            let btn = document.querySelector("#btn");
+
+            //btn에 onmousedown 이벤트 지정
+            btn.onmousedown = (e) => {
+                content.innerHTML = e.button + " 마우스 버튼 누름";
+                console.log(e);
+            }
+            //btn에 onmouseup 이벤트 지정
+            btn.onmouseup = (e) => {
+                content.innerHTML = e.button + " 마우스 버튼 뗌";
+                console.log(e);
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <button id="btn">버튼</button>
+    <p id="content"></p>
+</body>
+
+</html>
