@@ -51,10 +51,24 @@
       #sub_menu_container{
         display: flex;
         flex-direction: row;
+        height: 0px;
+        overflow: hidden;
       }
     </style>
     <script>
-       
+       window.onload = () => {
+        //숨겨진 부분까지 세로길이를 측정
+        let sub_menu_height = document.querySelector('#sub_menu_container').scrollHeight;
+        console.log(sub_menu_height);
+        //nav 태그 위에 마우스가 올라가면 sub_menu_container 길이를 숨겨진 길이까지 표현
+        document.querySelector("nav").onmouseenter = () => {
+            document.querySelector('#sub_menu_container').style.height = sub_menu_height +"px";
+        }
+        //nav 태그 위에 마우스가 벗어나면 sub_menu_container 길이를 0px
+        document.querySelector("nav").onmouseleave = () => {
+            document.querySelector('#sub_menu_container').style.height = "0px";
+        }
+       }
 
     </script>
 </head>
