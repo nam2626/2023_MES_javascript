@@ -65,7 +65,27 @@
         }
     </style>
     <script>
-       
+       window.onload = () => {
+            //제목 부분(.title)을 전부 선택
+            let title = document.querySelectorAll('.title');
+            //내용 부분(.content)을 전부 선택
+            let content = document.querySelectorAll('.content');
+            
+            //각 제목 부분에 클릭 이벤트 등록
+            for(i=0;i<title.length;i++){
+                content[i].style.height = '0px';
+                title[i].onclick = () => {
+                    console.log(i);
+                    if(content[i].style.height == '0px'){
+                        content[i].style.height = content[i].scrollHeight + "px";
+                    }else{
+                        content[i].style.height = "0px";
+                    }
+                }
+            }
+            //close 버튼 선택
+            //모든 내용 부분의 세로 길이를 0px로 지정
+       }
     </script>
 </head>
 
