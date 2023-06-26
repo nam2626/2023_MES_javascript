@@ -36,6 +36,16 @@
     <p>4</p>
     <p>5</p>
     <h1>제목 태그</h1>
-   
+    <script>
+        //이 시점에서는 위에 작성한 HTML을 읽은 후에 스크립트가 실행
+        //태그에 접근해서 속성값을 변경하거나 읽어오는 작업을 할 수 있다.
+        document.getElementById('txt').value = '안녕하세요';
+        console.log(document.getElementById('txt').type);
+        document.getElementById('txt').type = "password";
+
+        //태그명으로 선택
+        var p = document.getElementsByTagName('p');
+        console.log(p);
+    </script>
 </body>
 </html>
