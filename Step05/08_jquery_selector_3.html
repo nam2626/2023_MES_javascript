@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,16 @@
     <title>jQuery</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        $(function(){
-          
+        $(function () {
+            $('.txt3').prevUntil().css('text-decoration', 'underline');
+            $('.txt3').prevUntil('.title').css('color', 'orange');
+            $('.txt3').nextUntil().css('color', 'red');
+            $('.txt3').nextUntil('.txt6').css('font-weight', 'bold');
+
         });
     </script>
 </head>
+
 <body>
     <div id="wrap">
         <h1 class="title">선택자</h1>
@@ -23,4 +29,5 @@
         <p class="txt6">내용6</p>
     </div>
 </body>
+
 </html>
