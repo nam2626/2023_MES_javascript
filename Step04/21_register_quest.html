@@ -212,6 +212,15 @@
             document.querySelector("#pass_chk").onkeyup = checkPass;
             document.querySelector("#nick").onkeyup = checkNick;
             document.querySelector("#tel").onkeyup = checkTel;
+
+            //가입할 회원정보를 제출하기전에 최종적으로 모든 데이터를 체크
+            //1. 모든 체크에 통과하면 서버로 데이터를 제출
+            //2. 모든 체크에 통과하지 못하면 submit 이벤트를 정지
+            document.querySelector("#frm").onsubmit = (e) => {
+                if(!checkId() || !checkPass() || !checkNick() || !checkTel()){
+                    e.preventDefault();
+                }
+            }
         }
     </script>
 </head>
