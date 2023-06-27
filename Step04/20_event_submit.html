@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <script>
+        window.onload = () => {
+            let frm = document.querySelector("#frm");
+            let id = document.querySelector("#id");
+            let pass = document.querySelector("#pass");
+            frm.onsubmit = (e) => {
+                //아이디와 비밀번호가 각각 6자리 이상 입력이 되야 전송이 되게끔 처리
+                //6자리이상 입력되지 않으면 경고창 발생 및 submit 이벤트 처리 중단
+                if(id.value.length < 6 || pass.value.length < 6){
+                    alert('아이디와 비밀번호는 6자리 이상 입력해야 합니다.');
+                    e.preventDefault();
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="" id="frm">
+        <input type="text" id="id" name="id"><br>
+        <input type="password" id="pass" name="pass"><br>
+        <button>로그인</button>
+    </form>
+</body>
+</html>
