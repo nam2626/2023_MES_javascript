@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <script>
+        window.onload = () => {
+            //하이퍼 링크, input 태그 선택
+            let txt = document.querySelector("#txt");
+            let a = document.querySelector("a");
+
+            //선택이 되었을 때
+            txt.onfocus = () => {
+                txt.style.backgroundColor = "yellow";
+            }
+            //선택이 해제 되었을때
+            txt.onblur = () => {
+                txt.style.backgroundColor = "white";
+            }
+
+            //a 태그가 선택이되면 글꼴을 두껍게 설정, 선택이 풀리면 원상태로 돌림
+            a.onfocus = () => {
+                a.style.fontWeight = "bold";
+            }
+            a.onblur = () => {
+                a.style.fontWeight = "normal";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="txt">
+    <br>
+    <a href="#">링크</a>
+</body>
+
+</html>
