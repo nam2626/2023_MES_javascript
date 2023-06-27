@@ -152,9 +152,9 @@
             let pass_result = document.querySelector(".pass_result");
 
             //정규식으로 암호 형식 체크
-            let reg = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&])[A-Za-z\d!@#$%^&]{8,20}$/;
+            let reg = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&])[A-Za-z\d!@#$%^&]{8,32}$/;
             if(!reg.test(pass.value)){
-                pass_result.innerHTML = "암호는 8~20글자 사이의 영문 대소문자, 숫자, 특수문자를 모두 포함해야 합니다.";
+                pass_result.innerHTML = "암호는 8~32글자 사이의 영문 대소문자, 숫자, 특수문자를 모두 포함해야 합니다.";
                 pass_result.classList.remove("true");
                 pass_result.classList.add("false");
                 return false;
@@ -173,6 +173,8 @@
         }
         window.onload = () => {
             document.querySelector("#id").onkeyup = checkId;
+            document.querySelector("#pass").onkeyup = checkPass;
+            document.querySelector("#pass_chk").onkeyup = checkPass;
         }
     </script>
 </head>
