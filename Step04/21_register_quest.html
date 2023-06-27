@@ -1,51 +1,61 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
     <style>
-        *{
+        * {
             margin: 0;
             padding: 0;
         }
-        .container{
+
+        .container {
             width: 700px;
             margin: 0 auto;
             padding: 40px;
             border: 1px solid #d1d1d1;
         }
-        h1{
+
+        h1 {
             text-align: center;
             margin: 20px 0px;
         }
-        form > ul {
+
+        form>ul {
             list-style-type: none;
         }
-        form > ul > li {
+
+        form>ul>li {
             margin-top: 10px;
         }
-        form > ul > ul{
+
+        form>ul>ul {
             list-style-type: disc;
             margin-top: 5px;
             padding-left: 40px;
             color: gray;
         }
-        label{
+
+        label {
             font-weight: bold;
         }
-        .border_bottom{
+
+        .border_bottom {
             border-bottom: 2px solid #c4c4c4;
         }
-        input{
-            border:none;
+
+        input {
+            border: none;
             outline: none;
             height: 50px;
             width: 80%;
             font-size: 20px;
         }
-        .sub_txt{
+
+        .sub_txt {
             width: 20%;
             font-size: 20px;
             font-weight: bold;
@@ -54,51 +64,85 @@
             color: gray;
             display: inline-block;
         }
-        #gcode{
-            width:100px;
+
+        #gcode {
+            width: 100px;
             height: 50px;
             box-sizing: border-box;
-            border:none;
+            border: none;
             font-size: 20px;
             outline: none;
             border-right: 1px solid #c4c4c4;
         }
-        .btn_send_no{
+
+        .btn_send_no {
             width: 250px;
             height: 50px;
             background-color: white;
-            border:1px solid #c4c4c4;
+            border: 1px solid #c4c4c4;
             border-radius: 25px;
         }
-        .btn_send_no:hover{
+
+        .btn_send_no:hover {
             background-color: #d4d4d4;
-        } 
-        .btn_send_no:active{
+        }
+
+        .btn_send_no:active {
             background-color: white;
         }
-        .btn_next{
-            width:100%;
+
+        .btn_next {
+            width: 100%;
             height: 50px;
             background-color: #d4d4d4;
             border-radius: 10px;
-            border:none;
+            border: none;
         }
-        .btn_next:hover{
+
+        .btn_next:hover {
             background-color: #ffe606;
         }
-        .true{
-            color:blue;
+
+        .true {
+            color: blue;
             font-weight: bold;
         }
-        .false{
-            color:red;
+
+        .false {
+            color: red;
             font-weight: bold;
         }
     </style>
     <script>
-       
+        //아이디 값이 정상인지 체크하는 함수
+        //1. 글자수 8~20글자 사이
+        //2. 숫자만 쓰면 X
+        function checkId() {
+            let id = document.querySelector("#id");
+            let id_result = document.querySelector(".id_result");
+
+            //1. 글자수 8~20글자 사이
+            if(id.value.length < 8 || id.value.length > 20){
+                id_result.innerHTML = "글자수는 8~20글자 사이로 입력해주세요.";
+                id_result.classList.remove("true");
+                id_result.classList.add("false");
+                return false;
+            }
+            //2. 숫자만 쓰면 X
+            if(!isNaN(id.value)){
+                id_result.innerHTML = "숫자만 입력하면 안됩니다.";
+                id_result.classList.remove("true");
+                id_result.classList.add("false");
+                return false;
+            }
+            id_result.innerHTML = "사용 가능한 아이디입니다.";
+            id_result.classList.remove("false");
+            id_result.classList.add("true");
+            return true;
+        }
     </script>
 </head>
+
 <body>
     <h1>kakao</h1>
     <div class="container">
@@ -143,4 +187,5 @@
         </form>
     </div>
 </body>
+
 </html>
