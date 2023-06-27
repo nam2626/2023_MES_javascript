@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>event</title>
+    <script>
+        window.onload = () => {
+            let sel = document.querySelector("#sel");
+            let txt = document.querySelector("#txt");
+
+            sel.onchange = () => {
+                console.log('select change 이벤트 발생', sel.value);
+            }
+            //텍스트 상자는 입력이 끝나고 선택이 풀려야 데이터가 변경 되었는지 체크
+            txt.onchange = () => {
+                console.log('input change 이벤트 발생', txt.value);
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <select id="sel">
+        <option value="0">선택</option>
+        <option value="1">데이터1</option>
+        <option value="2">데이터2</option>
+        <option value="3">데이터3</option>
+        <option value="4">데이터4</option>
+    </select>
+    <input type="text" id="txt">
+</body>
+
+</html>
