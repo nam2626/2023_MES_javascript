@@ -8,7 +8,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(function(){
-       
+            //자식 선택자
+            //아이디 wrap의 자식인 h1 제목태그 선택, 배경색 노랑, 글자는 밑줄
+            $('#wrap > h1').css({
+                'background-color':'yellow',
+                'text-decoration':'underline'
+            });
+            //아이디가 wrap 안에 있는 자식들중 p태그만 선택, 기울임꼴 적용
+            $('#wrap').children('p').css('font-style','italic');
         });
     </script>
 </head>
