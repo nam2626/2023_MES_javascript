@@ -140,6 +140,40 @@
             id_result.classList.add("true");
             return true;
         }
+        /*
+            1. 두번 입력한 암호가 서로 일치하는지?
+            2. 암호도 8~20글자만 허용
+            3. 특수문자가 포함되어 있는지?
+            하단에 메세지가 떠야됩니다.
+        */
+        function checkPass(){
+            let pass = document.querySelector("#pass");
+            let pass_chk = document.querySelector("#pass_chk");
+            let pass_result = document.querySelector(".pass_result");
+
+            //정규식으로 암호 형식 체크
+            let reg = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&])[A-Za-z\d!@#$%^&]{8,20}$/;
+            if(!reg.test(pass.value)){
+                pass_result.innerHTML = "암호는 8~20글자 사이의 영문 대소문자, 숫자, 특수문자를 모두 포함해야 합니다.";
+                pass_result.classList.remove("true");
+                pass_result.classList.add("false");
+                return false;
+            }
+            //두번 입력한 암호가 서로 일치하는지?
+            if(pass.value != pass_chk.value){
+                pass_result.innerHTML = "입력한 암호가 서로 일치하지 않습니다.";
+                pass_result.classList.remove("true");
+                pass_result.classList.add("false");
+                return false;
+            }
+            pass_result.innerHTML = "암호가 일치합니다.";
+            pass_result.classList.remove("false");
+            pass_result.classList.add("true");
+            return true;
+        }
+        window.onload = () => {
+            document.querySelector("#id").onkeyup = checkId;
+        }
     </script>
 </head>
 
