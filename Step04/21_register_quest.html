@@ -189,11 +189,29 @@
             sub_txt.innerHTML = nick.value.length + "/20";
             return true;
         }
+        //전화번호 체크하는 함수
+        function checkTel(){
+            let tel = document.querySelector("#tel");
+
+            //정규식으로 전화번호 형식 체크
+            // let reg = /^\d{3}-\d{3,4}-\d{4}$/;
+            let reg = /^\d{3}\d{3,4}\d{4}$/;
+            if(!reg.test(tel.value)){
+                tel.classList.remove("true");
+                tel.classList.add("false");
+                return false;
+            }
+            tel.classList.remove("false");
+            tel.classList.add("true");
+            return true;
+
+        }
         window.onload = () => {
             document.querySelector("#id").onkeyup = checkId;
             document.querySelector("#pass").onkeyup = checkPass;
             document.querySelector("#pass_chk").onkeyup = checkPass;
             document.querySelector("#nick").onkeyup = checkNick;
+            document.querySelector("#tel").onkeyup = checkTel;
         }
     </script>
 </head>
