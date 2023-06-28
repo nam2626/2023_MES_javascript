@@ -9,7 +9,15 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(function () {
-          
+            $("#fadeOut").click(function () {
+                $('img').fadeOut(1000);
+            });
+            $("#fadeIn").click(function () {
+                $('img').fadeIn(1000);
+            });
+            $("#fadeTo").click(function () {
+                $('img').fadeTo(1000, 0.4);
+            });
         });
     </script>
 </head>
