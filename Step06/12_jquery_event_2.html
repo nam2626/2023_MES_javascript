@@ -9,7 +9,14 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(function () {
-         
+            //이벤트 바인딩, 여러개 이벤트 지정
+            $('p').on('click mouseout',function(){
+                alert($('#container').html())
+            });
+            //버튼 클릭시 p태그에 적용된 mouseout 이벤트를 제거
+            $('button').click(function(){
+                $('p').off('mouseout');
+            });
         });
     </script>
 </head>
