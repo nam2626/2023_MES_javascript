@@ -26,7 +26,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(function(){
-           
+           $('button').click(function(){
+                let arr = Array.from($(this).prevAll());
+                let tag = arr.reduce((acc,cur,idx) => acc + `<td>${$(cur).val()}</td>` , '<tr>') + "</tr>";
+                
+                console.log(tag); 
+                $('tbody').append(tag);
+           });
         });
     </script>
 </head>
