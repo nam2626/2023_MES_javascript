@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,12 +8,17 @@
     <title>jQuery</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        $(function(){
-           
-
+        $(function () {
+            console.log($("#d3").html());//innerHTML
+            console.log($("#d3").text());//innerText
+            //innerHTML을 jQuery 담당 부분 --> 완성한 태그를 넣는 용도
+            $("#d1").html('<h2>제목태그</h2>');
+            //innerText을 jQuery 담당 부분 --> 태그에 있는 텍스트를 넣는 용도
+            $("#d2").text('<h2>제목태그</h2>');
         });
     </script>
 </head>
+
 <body>
     <div id="d1"></div>
     <div id="d2"></div>
@@ -21,4 +27,5 @@
         <p>#d3 문단 내용</p>
     </div>
 </body>
+
 </html>
