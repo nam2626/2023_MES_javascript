@@ -33,6 +33,13 @@
                 console.log(tag); 
                 $('tbody').append(tag);
            });
+           //td를 클릭하면 해당 라인을 지움
+           //단 삭제를 하기전에 사용자에게 미리 예 아니오로 입력 받아서 처리
+           //remove()
+           $('tbody td').click(function(){
+                if(confirm('정말 삭제하시겠습니까?'))
+                    $(this).parent().remove();
+           });
         });
     </script>
 </head>
