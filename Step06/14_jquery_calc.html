@@ -9,7 +9,18 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(function () {
-         
+            $('button').click(function(){
+                let n1 = Number($("#n1").val());
+                let n2 = Number($("#n2").val());
+                let op = $("#op").val();
+
+                let result = eval(`${n1}${op}${n2}`);
+
+                $("#result").val(result);
+                $("#history").append(`<p>${n1} ${op} ${n2} = ${result} ${new Date().toLocaleString()}</p>`);
+
+                
+            });
         });
     </script>
 </head>
