@@ -1,48 +1,137 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        table{
+        table {
             width: 1200px;
             border-collapse: collapse;
             margin: 0 auto;
         }
-        td,th{
-            border :1px solid black;
-            padding:5px;
+
+        td,
+        th {
+            border: 1px solid black;
+            padding: 5px;
             text-align: center;
         }
-        th{
+
+        th {
             background-color: #e9e9e9;
         }
-        tbody > tr:hover{
+
+        tbody>tr:hover {
             background-color: cornflowerblue;
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        $(function(){
-           $('button').click(function(){
+        $(function () {
+            $('button').click(function () {
                 let arr = Array.from($(this).prevAll());
-                let tag = arr.reduce((acc,cur,idx) => acc + `<td>${$(cur).val()}</td>` , '<tr>') + "</tr>";
-                
-                console.log(tag); 
-                $('tbody').append(tag);
-           });
-           //td를 클릭하면 해당 라인을 지움
-           //단 삭제를 하기전에 사용자에게 미리 예 아니오로 입력 받아서 처리
-           //remove()
-           $('tbody td').click(function(){
-                if(confirm('정말 삭제하시겠습니까?'))
+                let tag = arr.reduce((acc, cur, idx) => acc + `<td>${$(cur).val()}</td>`, '<tr>') + "</tr>";
+
+                console.log(tag);
+                //동적엘리먼트 추가 후 이벤트 처리도 추가 해야됨
+                $(tag).appendTo('tbody').click(function () {
+                    if (confirm('정말 삭제하시겠습니까?'))
+                        $(this).remove();
+                });
+            });
+            //td를 클릭하면 해당 라인을 지움
+            //단 삭제를 하기전에 사용자에게 미리 예 아니오로 입력 받아서 처리
+            //remove()
+            $('tbody td').click(function () {
+                if (confirm('정말 삭제하시겠습니까?'))
                     $(this).parent().remove();
-           });
+            });
+
+            let order = false;
+            //나이를 클릭하면 정렬
+            //누를 때마다 한번은 오름차순, 내림차순 번갈아가면서 실행
+            $('.order').click(function () {
+                order = !order;
+                if (order)
+                    order_asc();
+                else
+                    order_desc();
+            });
         });
+        function order_asc() {
+            //정렬된 각 행의 정보를 저장
+            let arr = new Array();
+
+            $('tbody > tr').each(function () {
+                //Number($(this).children().eq(1).text())
+                arr.push($(this));
+                //마지막 인덱스 번호 선택
+                let i = arr.length - 1;
+                while (i > 0) {
+                    //i번째에 해당하는 나이값과 i-1번째에 해당하는 나이값 뽑아서
+                    //i번째에 해당하는 나이값이 작으면 i번째와 i-1번째를 바꿈
+                    let current = Number($(arr[i]).children().eq(1).text());
+                    let prev = Number($(arr[i - 1]).children().eq(1).text());
+                    if (current < prev) {
+                        let temp = arr[i];
+                        arr[i] = arr[i - 1];
+                        arr[i - 1] = temp;
+                    } else {
+                        break;
+                    }
+                    i--;
+                }
+            });
+            //정렬된 데이터를 적용
+            $('tbody').html('');
+            $(arr).each(function () {
+                $('tbody').append($(this));
+            });
+            $('tbody td').click(function () {
+                if (confirm('해당 데이터를 삭제 할까요?'))
+                    $(this).parent().remove();
+            });
+        }
+        function order_desc() {
+            //정렬된 각 행의 정보를 저장
+            let arr = new Array();
+
+            $('tbody > tr').each(function () {
+                //Number($(this).children().eq(1).text())
+                arr.push($(this));
+                //마지막 인덱스 번호 선택
+                let i = arr.length - 1;
+                while (i > 0) {
+                    //i번째에 해당하는 나이값과 i-1번째에 해당하는 나이값 뽑아서
+                    //i번째에 해당하는 나이값이 작으면 i번째와 i-1번째를 바꿈
+                    let current = Number($(arr[i]).children().eq(1).text());
+                    let prev = Number($(arr[i - 1]).children().eq(1).text());
+                    if (current > prev) {
+                        let temp = arr[i];
+                        arr[i] = arr[i - 1];
+                        arr[i - 1] = temp;
+                    } else {
+                        break;
+                    }
+                    i--;
+                }
+            });
+            //정렬된 데이터를 적용
+            $('tbody').html('');
+            $(arr).each(function () {
+                $('tbody').append($(this));
+            });
+            $('tbody td').click(function () {
+                if (confirm('해당 데이터를 삭제 할까요?'))
+                    $(this).parent().remove();
+            });
+        }
     </script>
 </head>
+
 <body>
     <table>
         <thead>
@@ -211,4 +300,5 @@
         </tbody>
     </table>
 </body>
+
 </html>
