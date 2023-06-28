@@ -21,7 +21,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(function(){
-       
+            //스크롤바가 움직일때 발생하는 이벤트
+            $(window).scroll(function () { 
+                $("#pop").text($(window).scrollTop());
+            });
+            $(window).scrollTop(1000);
         });
     </script>
 </head>

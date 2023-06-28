@@ -1,45 +1,70 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery</title>
     <style>
-        *{
-            margin:0;
+        * {
+            margin: 0;
             padding: 0;
         }
-            /*스크롤바를 부드럽게 움직임*/
-        html{
+
+        /*스크롤바를 부드럽게 움직임*/
+        html {
             scroll-behavior: smooth;
         }
-        .container{
+
+        .container {
             height: 969px;
             /* border:1px solid red; */
             box-sizing: border-box;
         }
-        button{
+
+        button {
             padding: 30px;
             font-size: 60px;
             position: fixed;
             right: 40px;
             display: inline-block;
         }
-        button:first-of-type{
-            top : 300px;
+
+        button:first-of-type {
+            top: 300px;
         }
-        button:last-of-type{
-            top : 500px;
+
+        button:last-of-type {
+            top: 500px;
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        $(function(){
-           
+        $(function () {
+            //각 컨테이너에 색깔은 자유롭게 지정
+            let bgColor = ['red','blue','green','yellow','purple','skyblue'];
+            $('.container').map((idx, obj) =>{
+                $(obj).css("background-color",bgColor[idx]);
+            });
+            let idx = 0;
+            let slideHeight = $('.container').height();
+            //next 버튼을 누르면 다음 컨테이너가 보이게끔 스크롤 처리
+            $('#next').click(function (e) { 
+                if(idx == $('.container').length-1) return;
+                idx++;
+                $(window).scrollTop(idx * slideHeight);                
+            });
+            //back 버튼을 누르면 이전 컨테이너가 보이게끔 스크롤 처리
+            $("#back").click(function (e) {
+                if(idx == 0) return;
+                idx--;
+                $(window).scrollTop(idx * slideHeight);
+            });
         });
     </script>
 </head>
+
 <body>
     <div class="container"></div>
     <div class="container"></div>
@@ -50,4 +75,5 @@
     <button id="back">▲</button>
     <button id="next">▼</button>
 </body>
+
 </html>
