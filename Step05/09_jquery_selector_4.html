@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,30 +8,41 @@
     <title>jQuery</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        $(function(){
-           
+        $(function () {
+            // document.querySelector('.txt1').parentNode.style.border = '1px solid black';
+            ///.txt1 부모 요소를 선택
+            $('.txt1').parent().css('border', '1px solid black');
+            ///.txt1 부모의 부모 요소를 선택
+            $('.txt1').parent().parent().css('border', '1px solid red');
+            //.txt2의 모든 부모들을 선택
+            $('.txt2').parents().css('border', '1px dashed blue');
+            $('.txt2').parents('div').css('border', '5px dashed green');
         });
     </script>
     <style>
-        section,div{
-            padding:20px;
+        section,
+        div {
+            padding: 20px;
         }
-        p{
+
+        p {
             background-color: darkorange;
         }
     </style>
 </head>
+
 <body>
     <h1 class="title">선택자</h1>
-	<section>
-		<div>
-			<p class="txt1">내용</p>
-		</div>
-	</section>
-	<div>
-		<div>
-			<p class="txt2">내용</p>
-		</div>
-	</div> 
+    <section>
+        <div>
+            <p class="txt1">내용</p>
+        </div>
+    </section>
+    <div>
+        <div>
+            <p class="txt2">내용</p>
+        </div>
+    </div>
 </body>
+
 </html>
