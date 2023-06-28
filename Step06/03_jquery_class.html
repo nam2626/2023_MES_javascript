@@ -1,29 +1,47 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jQuery</title>
     <style>
-        .bold{
+        .bold {
             font-weight: bold;
         }
-        .size{
+
+        .size {
             font-size: 20px;
         }
-        .underline{
+
+        .underline {
             text-decoration: underline;
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        $(function(){
-        
+        $(function () {
+            //현재 p 태그에 적용된 클래스를 조회
+            console.log($('p').attr('class'));
+            //선택된 요소에 클래스를 추가
+            $('p').addClass('bold');
+            $('p').addClass('bold');//중복으로 추가는 안됨
+
+            //선택된 요소에 클래스를 제거
+            $('p').removeClass('bold');
+            $('p').toggleClass('underline');//있으면 제거, 없으면 추가
+            $('p').toggleClass('underline');
+
+            //해당 클래스가 있는지 확인
+            console.log($("p").hasClass('bold'));
+            console.log($("p").hasClass('underline'));
         });
     </script>
 </head>
+
 <body>
     <p class="size underline">내용</p>
 </body>
+
 </html>

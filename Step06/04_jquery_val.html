@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,14 +9,25 @@
     <title>jQuery</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-        $(function(){
-           
-
+        $(function () {
+            //txt에 입력한 value값 로그로 출력
+            console.log($('#txt').attr('value'));
+            console.log($('#txt').val());
+            $('#btn').click(function () {
+                //txt에 입력한 value값 로그로 출력
+                console.log($('#txt').attr('value'));
+                console.log($('#txt').val());//Property 값을 읽어옴
+                $('#txt').val('안녕하세요');//Property 값을 지정
+                console.log($('#txt').attr('value'));
+                console.log($('#txt').val());
+            });
         });
     </script>
 </head>
+
 <body>
     <input type="text" id="txt" value="test">
     <button id="btn">실행</button>
 </body>
+
 </html>
