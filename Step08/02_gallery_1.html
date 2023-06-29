@@ -8,7 +8,31 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script>
         $(function(){
-           
+            let index = 0;
+            let thumnailBarWidth = $('.thumnail_bar').width();
+            let thumnailWidth = $('.thumnail').width();
+           //섬네일 이미지 클릭시 메인 이미지 변경
+            $('.thumnail img').click(function (e) { 
+                $('.main_img').prop('src',$(this).attr('src'));                
+            });
+           //왼쪽 화살표 버튼 클릭시 해당 방향으로 회전 - 마지막까지 가면 움직이지 않음
+            $('.left_arrow').click(function (e) { 
+                if(thumnailBarWidth + index * 80 == thumnailWidth)
+                    return;
+                index++;
+                $('.thumnail').animate({
+                    'margin-left' : `-${index * 80}px`
+                },500);                
+            });
+           //오른쪽 화살표 버튼 클릭시 해당 방향으로 회전 - 첫번째까지 가면 움직이지 않음
+           $('.right_arrow').click(function (e) { 
+                if(index == 0)
+                    return;
+                index--;
+                $('.thumnail').animate({
+                    'margin-left' : `-${index * 80}px`
+                },500);                
+            });
         });
     </script>
     <style>
