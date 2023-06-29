@@ -20,11 +20,39 @@
                         let xmlParser = new DOMParser();
                         let xmlDoc = xmlParser.parseFromString(result,'text/xml');
                         console.log(xmlDoc);
+
+                        let record = xmlDoc.querySelectorAll('record');
+                        for(let i=0;i<record.length;i++){
+                            let id = record[i].querySelector('id').innerHTML;
+                            let first_name = record[i].querySelector('first_name').innerHTML;
+                            let last_name = record[i].querySelector('last_name').innerHTML;
+                            let email = record[i].querySelector('email').innerHTML;
+                            let gender = record[i].querySelector('gender').innerHTML;
+                            let ip_address = record[i].querySelector('ip_address').innerHTML;
+
+                            $('#view').append(`<p>${id},${first_name},${last_name},${email},${gender},${ip_address}</p>`);
+                        }
+                        allPrintXml(xmlDoc);
                     }
                 });                
             });
         });
-       
+        function allPrintXml(xmlDoc){
+            var root = xmlDoc.getElementsByTagName("dataset")[0];
+            console.log("root의 자식 태그 개수: "+root.childNodes.length);
+            for(i=0;i<root.childNodes.length;i++){
+                console.log(root.childNodes[i].nodeName, root.childNodes[i].childNodes.length);
+                if(root.childNodes[i].childNodes == undefined) {
+                    console.log(root.childNodes[i]);
+                    continue;
+                }
+                for(j=0;j<root.childNodes[i].childNodes.length;j++){
+                    console.log("   " + root.childNodes[i].childNodes[j].nodeName
+                    +" : "+root.childNodes[i].childNodes[j].innerHTML
+                    );
+                } 
+            }
+        }
     </script>
 </head>
 
