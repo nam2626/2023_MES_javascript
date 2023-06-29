@@ -1,80 +1,122 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>slide image</title>
     <style>
-        *{
-            margin:0;
-            padding:0;
+        * {
+            margin: 0;
+            padding: 0;
         }
-        .slide_container{
+
+        .slide_container {
             width: 1200px;
-            margin : 0 auto;
+            margin: 0 auto;
             position: relative;
             border: 1px solid black;
             font-size: 0px;
             overflow: hidden;
         }
-        .slide_img_container{
+
+        .slide_img_container {
             width: 4800px;
             display: inline-block;
             list-style-type: none;
         }
-        .slide_img_container li{
+
+        .slide_img_container li {
             width: 1200px;
             float: left;
         }
-        .slide_container button{
+
+        .slide_container button {
             position: absolute;
             height: 100%;
-            background-color: rgba(255, 255, 255, 0.5);
-            top:0px;
+            background-color: rgba(255, 255, 255, 0.502);
+            top: 0px;
             border: none;
         }
-        .slide_container button:hover{
+
+        .slide_container button:hover {
             background-color: rgba(255, 255, 255, 0.8);
         }
-        .slide_container button:active{
+
+        .slide_container button:active {
             background-color: rgba(255, 255, 255, 0);
         }
-        .left_arrow{
+
+        .left_arrow {
             left: 0px;
         }
-        .right_arrow{
+
+        .right_arrow {
             right: 0px;
         }
-        .slide_nav_bar{
+
+        .slide_nav_bar {
             position: relative;
             bottom: 0px;
         }
-        .radio_bar{
+
+        .radio_bar {
             text-align: center;
         }
-        .radio{
+
+        .radio {
             width: 25px;
             height: 25px;
             border-radius: 25px;
-            border:2px solid #c9c9c9;
+            border: 2px solid #c9c9c9;
             box-sizing: border-box;
             display: inline-block;
             margin-right: 5px;
             transition: 3s all;
         }
-        .select{
-            background-color:#c9c9c9;
+
+        .select {
+            background-color: #c9c9c9;
         }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script>
-        $(function(){
-           
+        $(function () {
+            let slideWidth = $('.slide_img_container li').first().width();
+            let bullet_idx = 0;
+            let status = false;
+            //왼쪽 화살표 클릭시 광고 이미지 이동 -> margin-left : -1200px;
+            $('.left_arrow').click(function (e) {
+                if(status) return;
+                status = true;
+                $('.slide_img_container li').first().animate({
+                    'margin-left': `-${slideWidth}px`
+                }, 3000, function () {
+                    $(this).appendTo('.slide_img_container').css('margin-left', '0px');
+                    status = false;
+                });
+                //불릿 문자 처리
+                bullet_idx = ++bullet_idx % 4;
+                $('.radio').eq(bullet_idx).addClass('select').siblings().removeClass('select');
+            });
+            //오른쪽 화살표 클릭시 광고 이미지 이동 margin-left -1200px -> 0px
+            $('.right_arrow').click(function (e) {
+                if(status) return;
+                status = true;
+                $('.slide_img_container li').last().css("margin-left",`-${slideWidth}px`).prependTo('.slide_img_container').animate({
+                    'margin-left' : '0px'
+                },3000,() => status = false);
+                bullet_idx--;
+                if(bullet_idx == -1) bullet_idx = 3;
+                $('.radio').eq(bullet_idx).addClass('select').siblings().removeClass('select');
+            });
         });
+
     </script>
 
 </head>
+
 <body>
     <div class="slide_container">
         <ul class="slide_img_container">
@@ -95,4 +137,5 @@
         </div>
     </div>
 </body>
+
 </html>
