@@ -9,7 +9,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(function () {
-           
+            $('#time').html(new Date().toLocaleString());
+            $('#btn').click(function (e) { 
+                $.ajax({
+                    type: "get",
+                    url: "http://nam2626.dothome.co.kr/ajax_xml.php",
+                    dataType: "text",
+                    success: function (result) {
+                        console.log(result);
+                        let xmlParser = new DOMParser();
+                        let xmlDoc = xmlParser.parseFromString(result,'text/xml');
+                        console.log(xmlDoc);
+                    }
+                });                
+            });
         });
        
     </script>
