@@ -8,7 +8,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script>
         $(function(){
-          
+            $('#val').change(function(){
+                console.log($(this).val());
+                //투명도 값을 지정하는 css, 0~1
+                $('img').css('opacity',`${$(this).val() / 10}`);
+            });
         });
     </script>
 </head>
