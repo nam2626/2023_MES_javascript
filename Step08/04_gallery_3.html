@@ -15,7 +15,7 @@
                     $(this).appendTo('.thumnail').css('margin-left', '0px');
                   
                   $('.thumnail li').first().css('opacity',1).siblings().css('opacity',0.5);
-                  $('.thumnail img').first().click();
+                  $('.main_img').prop('src',$('.thumnail img').first().attr('src')); 
                 });         
         }
         $(function () {
