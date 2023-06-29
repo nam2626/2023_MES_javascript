@@ -20,7 +20,6 @@
                         let xmlParser = new DOMParser();
                         let xmlDoc = xmlParser.parseFromString(result,'text/xml');
                         console.log(xmlDoc);
-
                         let record = xmlDoc.querySelectorAll('record');
                         for(let i=0;i<record.length;i++){
                             let id = record[i].querySelector('id').innerHTML;
