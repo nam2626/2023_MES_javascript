@@ -9,8 +9,20 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(function(){
-         
- 
+            $('#time').html(new Date().toLocaleString());
+            $('#btn').click(function (e) { 
+                //서버에 전송할 데이터
+                let queryString = 'txt=' + $('#txt').val();
+                //ajax
+                $.ajax({
+                    url : 'http://nam2626.dothome.co.kr/papago.php',
+                    data : queryString,
+                    type : 'get',
+                    success : function(result){
+                        console.log(result);
+                    }
+                });               
+            });
         });
     </script>
 </head>

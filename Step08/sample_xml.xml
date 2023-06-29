@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<dataset>
+  <record>
+    <id>1</id>
+    <first_name>Brigid</first_name>
+    <last_name>Trainor</last_name>
+    <email>btrainor0@jimdo.com</email>
+    <gender>Female</gender>
+    <ip_address>57.198.6.186</ip_address>
+  </record>
+  <record>
+    <id>2</id>
+    <first_name>Roger</first_name>
+    <last_name>Bourchier</last_name>
+    <email>rbourchier1@sphinn.com</email>
+    <gender>Male</gender>
+    <ip_address>165.65.164.203</ip_address>
+  </record>
+</dataset>
