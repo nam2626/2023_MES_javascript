@@ -18,8 +18,11 @@
                     url : 'http://nam2626.dothome.co.kr/papago.php',
                     data : queryString,
                     type : 'get',
+                    dataType : 'json',
                     success : function(result){
                         console.log(result);
+                        console.log(result.message.result.translatedText);
+                        $('#view').text(result.message.result.translatedText);
                     }
                 });               
             });
