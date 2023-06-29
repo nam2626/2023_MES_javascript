@@ -8,34 +8,46 @@
     <title>jquery setting</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
     <script>
-        $(function () {
-            //섬네일 이미지 클릭시 메인 이미지 변경
-            $('.thumnail img').click(function (e) { 
-                $('.main_img').prop('src',$(this).attr('src'));                
-            });
-           //왼쪽으로 이동, 단 계속 회전
-            $('.left_arrow').click(function (e) { 
-                $('.thumnail li').first().animate({
+        function left_arrow_event(){
+            $('.thumnail li').first().animate({
                     'margin-left' : '-80px'
                 },500,function () {
-                    //왼쪽으로 이동이 완료된 후
-                   //1.왼쪽으로 이동한 li를 .thumnail 맨뒤로 이동
-                   //2.이동한 li의 margin-left 다시 0px로 변경
                     $(this).appendTo('.thumnail').css('margin-left', '0px');
-                  });                    
+                  
+                  $('.thumnail li').first().css('opacity',1).siblings().css('opacity',0.5);
+                  $('.thumnail img').first().click();
+                });         
+        }
+        $(function () {
+            $('.thumnail li').first().siblings().css('opacity',0.5);
+            $('.thumnail img').click(function (e) { 
+                $('.main_img').prop('src',$(this).attr('src')); 
+                clearInterval(interval_id);   
+                $(this).parent().css('opacity',1).siblings().css('opacity',0.5);           
             });
-           //오른쪽 이동, 단 계속 회전
+       
+            $('.left_arrow').click(function (e) { 
+                left_arrow_event();  
+                clearInterval(interval_id);   
+       
+            });
+        
            $('.right_arrow').click(function (e) { 
                 $('.thumnail li').last().css('margin-left','-80px').prependTo('.thumnail').
                 animate({
                     'margin-left' : '0px'
-                },500);
-                                    
+                },500,function(){
+                    $('.thumnail li').first().css('opacity',1).siblings().css('opacity',0.5);
+                  $('.thumnail img').first().click();
+                });
+                clearInterval(interval_id);   
             });
             //5초 마다 오른쪽으로 썸네일 이미지를 자동으로 회전을 실행
             //단 이미지를 클릭하거나, 화살표를 클릭하면 자동 회전을 중지
             //setInterval, clearInterval, 회전하는 함수
-
+            let interval_id = setInterval(function(){
+                left_arrow_event();
+            },5000);
         });
     </script>
     <style>
