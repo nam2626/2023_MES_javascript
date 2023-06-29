@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=js_key&libraries=services"></script>
+    <script>
+        window.onload = () => {
+            let btn = document.querySelector("#btn");
+            let address = document.querySelector("#address");
+            let r = document.querySelector("#result");
+            btn.onclick = () => {
+                //주소를 보내서 GPS 좌표를 받음
+                let geocoder = new kakao.maps.services.Geocoder();
+                geocoder.addressSearch(address.value,function(result, status){
+                    if(status == kakao.maps.services.Status.OK){
+                        console.log(result);
+                        //r.innerHTML = JSON.stringify(result);
+                        r.innerHTML = result[0].address.x + ' ' + result[0].address.y;
+                    }
+                });
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input type="text" id="address"><button id="btn">이동</button>
+    <div id="result"></div>
+</body>
+
+</html>
