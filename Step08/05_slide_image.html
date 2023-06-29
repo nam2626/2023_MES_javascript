@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slide image</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        .slide_container{
+            width: 1200px;
+            margin : 0 auto;
+            position: relative;
+            border: 1px solid black;
+            font-size: 0px;
+            overflow: hidden;
+        }
+        .slide_img_container{
+            width: 4800px;
+            display: inline-block;
+            list-style-type: none;
+        }
+        .slide_img_container li{
+            width: 1200px;
+            float: left;
+        }
+        .slide_container button{
+            position: absolute;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.5);
+            top:0px;
+            border: none;
+        }
+        .slide_container button:hover{
+            background-color: rgba(255, 255, 255, 0.8);
+        }
+        .slide_container button:active{
+            background-color: rgba(255, 255, 255, 0);
+        }
+        .left_arrow{
+            left: 0px;
+        }
+        .right_arrow{
+            right: 0px;
+        }
+        .slide_nav_bar{
+            position: relative;
+            bottom: 0px;
+        }
+        .radio_bar{
+            text-align: center;
+        }
+        .radio{
+            width: 25px;
+            height: 25px;
+            border-radius: 25px;
+            border:2px solid #c9c9c9;
+            box-sizing: border-box;
+            display: inline-block;
+            margin-right: 5px;
+            transition: 3s all;
+        }
+        .select{
+            background-color:#c9c9c9;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        $(function(){
+           
+        });
+    </script>
+
+</head>
+<body>
+    <div class="slide_container">
+        <ul class="slide_img_container">
+            <li><img src="image/main_1.jpg" alt=""></li>
+            <li><img src="image/main_2.jpg" alt=""></li>
+            <li><img src="image/main_3.jpg" alt=""></li>
+            <li><img src="image/main_4.jpg" alt=""></li>
+        </ul>
+        <button class="left_arrow"><img src="image/left_arrow.png"></button>
+        <button class="right_arrow"><img src="image/right_arrow.png"></button>
+        <div class="'slide_nav_bar">
+            <ul class="radio_bar">
+                <li class="radio select"></li>
+                <li class="radio"></li>
+                <li class="radio"></li>
+                <li class="radio"></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

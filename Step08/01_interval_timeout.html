@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(function(){
+            //setTimeout : 일정시간 후에 한번 실행
+            let timout_id = setTimeout(() => {
+                console.log(`5초 뒤에 실행 - ${new Date().toLocaleString()}`);
+            }, 5000);
+            console.log(timout_id);
+            $("#out").click(() => clearTimeout(timout_id));
+
+            //setInterval : 일정시간마다 반복실행
+            let interval_id = setInterval(() => {
+                console.log(`3초마다 실행 - ${new Date().toLocaleString()}`);
+            }, 3000);
+            $("#inter").click(() => clearInterval(interval_id));
+        });
+    </script>
+</head>
+<body>
+    <button id="inter">Interval Stop</button>
+    <button id="out">Timeout Stop</button>
+</body>
+</html>
