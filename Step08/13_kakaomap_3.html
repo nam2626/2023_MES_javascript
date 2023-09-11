@@ -12,9 +12,12 @@
         }
     </style>
     <script type="text/javascript"
-        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=js_key&libraries=services"></script>
-    <script>
-        window.onload = () => {
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=de19950362558a9c45461c5730558269&libraries=services"></script>
+        <script src="https://t1.kakaocdn.net/kakao_js_sdk/2.3.0/kakao.min.js"
+  integrity="sha384-70k0rrouSYPWJt7q9rSTKpiTfX6USlMYjZUtr1Du+9o4cGvhPAWxngdtVZDdErlh" crossorigin="anonymous"></script>
+<script>
+    window.onload = () => {
+            Kakao.init('de19950362558a9c45461c5730558269'); // 사용하려는 앱의 JavaScript 키 입력
             let btn = document.querySelector("#btn");
             let address = document.querySelector("#address");
             btn.onclick = () => {
@@ -41,6 +44,14 @@
 
                         infowindow.open(map, marker);
                         map.setCenter(markerPosition);
+                        kakao.maps.event.addListener(marker, 'click', function() {
+                            Kakao.Navi.start({
+                                name: '현대백화점 판교점',
+                                x: 127.11205203011632,
+                                y: 37.39279717586919,
+                                coordType: 'wgs84',
+                                });
+                        });
 
                     }
                 });

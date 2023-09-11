@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/JsBarcode.code128.min.js"></script>
+    <script>
+        window.onload = () => {
+            document.querySelector("button").onclick = () => {
+                let barcode = document.querySelector("#txt_barcode").value;
+                JsBarcode("#barcode", barcode, {format: "CODE128"});
+            }
+            document.querySelector("#barcode").onclick = function(){
+                let svg = this;
+                let data = new XMLSerializer().serializeToString(svg);
+                let blob = new Blob([data], {type: "image/svg+xml"});
+
+                //svg 다운로드하는 부분
+                //downloadSVG(blob);
+
+                //png 다운로드하는 부분
+                //svg를 png로 변환하는 과정
+                let canvas = document.createElement("canvas");
+                let {width,height} = svg.getBoundingClientRect();
+                let context = canvas.getContext("2d");
+                canvas.width = width;
+                canvas.height = height;
+
+                let image = new Image();
+                image.onload = (e) => {
+                    context.drawImage(e.target, 0, 0);
+                    let link = document.createElement("a");
+                    link.download = "barcode.png";
+                    link.href = canvas.toDataURL("image/png");
+                    link.click();
+                }
+                image.src = URL.createObjectURL(blob);
+
+            }
+        }
+        function downloadSVG(blob){
+            let a = document.createElement("a");
+            a.download = "barcode.svg";
+            a.href = URL.createObjectURL(blob);
+
+            a.click();
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id="txt_barcode" value="0123456789">
+    <button type="button">바코드 생성</button>
+    <hr>
+    <svg id="barcode"></svg>
+</body>
+</html>
